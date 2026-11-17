@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Birthday Invitation ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffd1dc, #e6ccff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: white;
+    width: 90%;
+    max-width: 430px;
+    padding: 30px 20px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px #0002;
+}
+
+h1 {
+    color: #ff4f87;
+}
+
+h2 {
+    color: #8e44ad;
+}
+
+p {
+    color: #555;
+    font-size: 17px;
+}
+
+button {
+    padding: 13px 27px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #ff5790;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.07);
+}
+
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.6;
+}
+
+.place {
+    background: #a66cff;
+}
+
+#letter {
+    display: none;
+    background: #fff5f8;
+    padding: 20px;
+    border: 2px dashed #ff82aa;
+    border-radius: 15px;
+    text-align: left;
+    line-height: 1.8;
+}
+
+.heart {
+    font-size: 35px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="heart">🎂 🎉 ❤️</div>
+
+<h1>Birthday Special!</h1>
+
+<div id="step1">
+
+<h2>Heyyy! 🎀</h2>
+
+<p>Will you go on a birthday party with me? 🥳</p>
+
+<button onclick="nextStep(2)">YES ❤️</button>
+<button disabled>NO 🙈</button>
+
+</div>
+
+<div id="step2" style="display:none">
+
+<h2>One More Question! 💗</h2>
+
+<p>What is your favourite place?</p>
+
+<button class="place" onclick="selectPlace('INOX')">
+INOX 🎬
+</button>
+
+<button class="place" onclick="selectPlace('CRED-X')">
+CRED-X ✨
+</button>
+
+</div>
+
+<div id="step3" style="display:none">
+
+<h2>Final Confirmation! 💕</h2>
+
+<p>Let's meet at 4 PM. Done? ⏰</p>
+
+<button onclick="nextStep(4)">YES ❤️</button>
+<button disabled>NO 🙈</button>
+
+</div>
+
+<div id="letter">
+
+<div style="text-align:center">
+<h1>💌 A Special Letter 💌</h1>
+<p>✨ Made with Love ✨</p>
+</div>
+
+<p>Dear Friend, ❤️</p>
+
+<p>
+Thank you for coming with me!
+I am so grateful that you will come with me.
+</p>
+
+<p>
+Let's be together and let's have some
+beautiful and memorable moments.
+</p>
+
+<p>
+Our destination: <b id="finalPlace"></b><br>
+Our meeting time: <b>4:00 PM</b> ⏰
+</p>
+
+<p style="text-align:right">
+Love from,<br>
+<b>Ravi Kumar ❤️</b>
+</p>
+
+<div style="text-align:center">
+🎂 🎀 💗 🎉
+<h2>See You Soon!</h2>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let favouritePlace = "";
+
+function nextStep(number) {
+
+document.getElementById("step1").style.display = "none";
+document.getElementById("step2").style.display = "none";
+document.getElementById("step3").style.display = "none";
+
+if(number === 4) {
+
+document.getElementById("letter").style.display = "block";
+document.getElementById("finalPlace").innerText = favouritePlace;
+
+} else {
+
+document.getElementById("step" + number).style.display = "block";
+
+}
+
+}
+
+function selectPlace(place) {
+
+favouritePlace = place;
+nextStep(3);
+
+}
+
+</script>
+
+</body>
+</html>
